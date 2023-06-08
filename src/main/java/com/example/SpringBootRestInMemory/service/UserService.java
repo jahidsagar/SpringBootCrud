@@ -34,6 +34,19 @@ public class UserService implements UserInterface {
     }
 
     @Override
+    public UserModel edit(String id, String name) {
+        UserModel userModel = userModels
+                .stream()
+                .filter(userModel1 -> userModel1.getId().equalsIgnoreCase(id))
+                .findFirst()
+                .get();
+        userModels.remove(userModel);
+        userModel.setName(name);
+        userModels.add(userModel);
+        return  userModel;
+    }
+
+    @Override
     public UserModel delete(String id) {
         UserModel user = userModels
                 .stream()

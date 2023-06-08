@@ -12,5 +12,7 @@ public interface UserInterface {
 
     public UserModel findById(String id);
 
+    public UserModel edit(String id, String name);
+
     public UserModel delete(String id);
 }

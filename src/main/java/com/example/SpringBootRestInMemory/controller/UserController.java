@@ -30,6 +30,11 @@ public class UserController {
         return this.userInterface.findById(id);
     }
 
+    @GetMapping("/{id}/{name}")
+    public UserModel getById(@PathVariable String id, @PathVariable String name){
+        return this.userInterface.edit(id,name);
+    }
+
     @DeleteMapping("/{id}")
     public UserModel deleteUser(@PathVariable String id){
         return this.userInterface.delete(id);
